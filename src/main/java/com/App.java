@@ -2,7 +2,10 @@ package com;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+
+import com.bean.UserBean;
 
 /**
  * Hello world!
@@ -23,9 +26,18 @@ public class App {
 //		System.out.println(session);
 
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
-		System.out.println(sf);
-
 		Session session = sf.openSession();
+
+		UserBean user = new UserBean();
+
+		user.setFirstName("ram1");
+		user.setEmail("ram1@gmail.com");
+		user.setPassword("ram1213");
+		user.setCity("ayodhya1");
+		Transaction tx = session.beginTransaction();
+		session.save(user);// insert into
+		tx.commit();
+		session.close();
 
 	}
 }

@@ -18,6 +18,7 @@
 		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
 
 		<mapping resource="users.hbm.xml" />
+		<mapping resource="book.hbm.xml" />
 	</session-factory>
 
 
