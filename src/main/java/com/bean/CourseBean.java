@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public class CourseBean {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue //assigned 
 	int courseId; 
 	@Column(name="cname")
 	String courseName;//varchar varchar2 

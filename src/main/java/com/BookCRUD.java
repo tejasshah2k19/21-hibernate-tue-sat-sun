@@ -3,6 +3,7 @@ package com;
 import java.util.List;
 import java.util.Scanner;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -128,6 +129,20 @@ public class BookCRUD {
 					e.printStackTrace();
 				}
 
+				break;
+
+			case 6:
+				// HQL
+				System.out.println("Enter BookName For Search?");
+				String bookName = scr.next();
+				session = sf.openSession();
+				Query<BookBean> query = session.createQuery("select * from books where bookName like :bookName",BookBean.class);
+				query.setString("bookName", bookName);
+				books = query.getResultList();
+
+				for (BookBean b : books) {
+					System.out.println(b.getBookId() + " " + b.getName() + " " + b.getAuthor() + " " + b.getPrice());
+				}
 				break;
 			default:
 				System.out.println("\nInvalid choice try again!!!");
