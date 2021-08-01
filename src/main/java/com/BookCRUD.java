@@ -62,6 +62,16 @@ public class BookCRUD {
 
 				session.close();
 				break;
+			case 3:
+				System.out.println("Enter bookId ");
+				bookId = scr.nextInt();// book id -> 9 delete from book where bookId = 9
+				session = sf.openSession();
+				tx = session.beginTransaction();
+				book = session.get(BookBean.class, bookId);// search - 9 select * from book where bookId = 9
+				session.delete(book); // delete book - 9
+				tx.commit();
+				session.close();
+				break;
 			case 4:
 				System.out.println("Enter BookId ");
 				bookId = scr.nextInt();
@@ -69,6 +79,55 @@ public class BookCRUD {
 				book = session.get(BookBean.class, bookId);
 				System.out.println(
 						book.getBookId() + " " + book.getName() + " " + book.getAuthor() + " " + book.getPrice());
+				break;
+			case 5:
+				System.out.println("---update--");
+				System.out.println("which book you want to update please Enter bookid");
+				session = sf.openSession();
+				bookId = scr.nextInt();
+				try {
+					book = session.get(BookBean.class, bookId);
+
+					if (book == null) {
+						System.out.println("invalid bookId");
+					} else {
+
+						System.out.println("oldName : " + book.getName());
+						System.out.println("Do you want to update book name? Press 1 for Yes");
+						int ch = scr.nextInt();
+
+						if (ch == 1) {
+							System.out.println("Enter new book name");
+							String newBookName = scr.next();
+							book.setName(newBookName);// new name set
+						}
+						System.out.println("oldAuthor : " + book.getAuthor());
+
+						System.out.println("Do you want to update book author? Press 1 for Yes");
+						ch = scr.nextInt();
+
+						if (ch == 1) {
+							System.out.println("Enter new AuthorName ");
+							String newAuthorName = scr.next();
+							book.setAuthor(newAuthorName); // new author name set
+						}
+
+						// you can ask for other parameters like price , author
+
+						tx = session.beginTransaction();
+						session.save(book); // save method is used to update in hibernate
+						// how save method knows that hiberante have to insert or update?
+						// using Id of your data --> if id is missing means its new record
+						// if id is present then update
+						tx.commit();
+						session.close();
+					}
+				} catch (Exception e) {
+					System.out.println("something went wrong....");
+					System.out.println(e.getMessage());
+					e.printStackTrace();
+				}
+
 				break;
 			default:
 				System.out.println("\nInvalid choice try again!!!");
