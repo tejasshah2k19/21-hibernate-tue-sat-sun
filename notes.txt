@@ -109,23 +109,80 @@ Dialects ??
  @Column  - modify column name or other properties of column  in entity class / bean class 
  @GeneratedValue  - specify generator for id 
  
- 
+  
  -------------------------------------------------
  
 save(entity)
 delete(entity)
 get(class,Id)
-createQuery("query",class)
+createQuery("query",class) //Query 
 
 
  -------------------------------------------------
 
  
+ HQL:- hibernate query language 
+ 
+ HQL vs SQL 
  
  
+ HQL --> entity --> columns  
+
+@Entity
+@Table(name="products")
+public class ProductBean {
+
+	
+	//products -->sql -->select * from products 
+	//ProductBean --> Entity  ---> from ProductBean
+}
+ 
+ //from select where --> case insensitive 
+ //but all the entity and their fields are case sensitive 
+ 
+ Query query = session.createQuery("FROM ProductBean");
+ Query query = session.createQuery("from ProductBean");
  
  
+ Query query = session.createQuery("from ProductBean",ProductBean.class);
  
+ List<> listOfProducts = query.list();
+ 
+ 
+by default your entity name is your class name and that is the your table name.
+
+
+how to change entity name?
+@Entity(name="PB")
+
+how to change table name? 
+@Table(name="products") 
+
+
+
+Query q = session.createQuery("select u.firstName , r.roleName from UserBean u, RoleBean r where u.roleId = r.roleId");
+select u.firstName , r.roleName from user u , role r where u.roleId= r.roleId; 
+ 
+ 
+# just look for NamedParameter in BookCRUD 
+
+-------------------------------------------------------------------
+NATIVE SQL 
+
+SQLQuery query = session.createSQLQuery("select * from products");
+ 
+List productList = query.list();
+-------------------------------------------------------------------
+
+ 
+ 
+
+
+
+
+
+
+
  
  
  

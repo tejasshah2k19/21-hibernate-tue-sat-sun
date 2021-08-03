@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.bean.StudentBean" table="students">
+
+		<id name="studentId">
+			<generator class="native"></generator>
+		</id>
+
+		<property name="firstName"></property>
+
+		<!-- Mapping one-to-many -->
+
+		<list name="certificates">
+			<key column="studentId"></key>
+			<list-index column="myindex"></list-index>
+			<one-to-many class="com.bean.CertificateBean" />
+		</list>
+
+	</class>
+
+	<class name="com.bean.CertificateBean" table="certificates">
+		<id name="certificateId">
+			<generator class="native"></generator>
+		</id>
+
+		<property name="name"></property>
+	</class>
+
+</hibernate-mapping>

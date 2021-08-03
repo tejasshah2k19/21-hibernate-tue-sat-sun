@@ -10,9 +10,14 @@ import javax.persistence.Table;
 @Table(name="courses")
 public class CourseBean {
 
+//	@Id
+//	@GeneratedValue //assigned 
+//	int courseId; 
+
+	
 	@Id
-	@GeneratedValue //assigned 
-	int courseId; 
+	@GeneratedValue(generator="native")
+	int courseId;
 	@Column(name="cname")
 	String courseName;//varchar varchar2 
 	int price;//

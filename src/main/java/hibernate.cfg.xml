@@ -19,7 +19,9 @@
 
 		<mapping resource="users.hbm.xml" />
 		<mapping resource="book.hbm.xml" />
-		<mapping class="com.bean.CourseBean"  /> 
+		<mapping class="com.bean.CourseBean" />
+
+		<mapping resource="student.hbm.xml" />
 	</session-factory>
 
 
