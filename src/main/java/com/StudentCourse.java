@@ -49,7 +49,7 @@ public class StudentCourse {
 
 		ArrayList<CertificateBean> certificates = new ArrayList<CertificateBean>();
 
-		certificates.add(c1);
+		certificates.add(c1);//persist
 		certificates.add(c2);
 		certificates.add(c3);
 
