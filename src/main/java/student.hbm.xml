@@ -15,9 +15,9 @@
 
 		<!-- Mapping one-to-many -->
 
-		<list name="certificates">
+		<list name="certificates" cascade="all">
 			<key column="studentId"></key>
-			<list-index column="myindex"></list-index>
+		 	<list-index column="myindex"></list-index>
 			<one-to-many class="com.bean.CertificateBean" />
 		</list>
 
