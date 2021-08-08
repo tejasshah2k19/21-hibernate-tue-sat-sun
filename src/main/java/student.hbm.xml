@@ -14,7 +14,7 @@
 		<property name="firstName"></property>
 
 		<!-- Mapping one-to-many -->
-
+		
 		<list name="certificates" cascade="all">
 			<key column="studentId"></key>
 		 	<list-index column="myindex"></list-index>

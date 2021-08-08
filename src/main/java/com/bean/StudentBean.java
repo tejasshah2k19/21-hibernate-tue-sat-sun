@@ -11,8 +11,11 @@ public class StudentBean {
 	//1 student has many certificates 
 	List<CertificateBean> certificates;
 	
-	
-	
+	//Video- abc 
+	//Tag  - programing 
+	//vide_tag - abc,programming 
+	//			
+
 	public int getStudentId() {
 		return studentId;
 	}
