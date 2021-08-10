@@ -22,6 +22,9 @@
 		<mapping class="com.bean.CourseBean" />
 
 		<mapping resource="student.hbm.xml" />
+
+		<mapping resource="onetoone.hbm.xml"/>
+
 	</session-factory>
 
 

@@ -1,4 +1,4 @@
-package com.bean;
+package com.bean.onetomany;
 
 import java.util.List;
 

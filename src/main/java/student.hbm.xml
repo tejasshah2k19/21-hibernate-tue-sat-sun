@@ -5,7 +5,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.bean.StudentBean" table="students">
+	<class name="com.bean.onetomany.StudentBean" table="students">
 
 		<id name="studentId">
 			<generator class="native"></generator>
@@ -18,12 +18,12 @@
 		<list name="certificates" cascade="all">
 			<key column="studentId"></key>
 		 	<list-index column="myindex"></list-index>
-			<one-to-many class="com.bean.CertificateBean" />
+			<one-to-many class="com.bean.onetomany.CertificateBean" />
 		</list>
 
 	</class>
 
-	<class name="com.bean.CertificateBean" table="certificates">
+	<class name="com.bean.onetomany.CertificateBean" table="certificates">
 		<id name="certificateId">
 			<generator class="native"></generator>
 		</id>

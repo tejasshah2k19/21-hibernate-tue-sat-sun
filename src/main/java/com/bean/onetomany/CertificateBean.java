@@ -1,4 +1,4 @@
-package com.bean;
+package com.bean.onetomany;
 
 public class CertificateBean {
 

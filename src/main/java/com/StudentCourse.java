@@ -7,17 +7,17 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import com.bean.CertificateBean;
-import com.bean.StudentBean;
+import com.bean.onetomany.CertificateBean;
+import com.bean.onetomany.StudentBean;
 
 public class StudentCourse {
 
 	public static void main(String[] args) {
-//		new StudentCourse().addStudent();
+		new StudentCourse().addStudent();
 		// new StudentCourse().getStudent();
 		// new StudentCourse().deleteStudent();
 		// new StudentCourse().addCertiForStudent();
-		new StudentCourse().deleteCertificate();
+//		new StudentCourse().deleteCertificate();
 	}
 
 	void getStudent() {

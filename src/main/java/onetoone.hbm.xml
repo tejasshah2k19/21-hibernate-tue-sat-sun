@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.bean.onetoone.StockBean" table="stock">
+		<id name="stockId">
+			<generator class="native"></generator>
+		</id>
+
+		<property name="stockName"></property>
+		<property name="stockType"></property>
+		<property name="stockCode"></property>
+		<one-to-one name="stockDetail" cascade="all"></one-to-one>
+	</class>
+
+	<class name="com.bean.onetoone.StockDetailBean" table="stockDetail">
+			<id name="stockDetailId">
+				<generator class="foreign">
+					<param name="property">stock</param>
+				</generator>
+			</id>
+			<property name="maxPrice"></property>
+			<property name="minPrice"></property>
+			<property name="currentPrice"></property>
+		
+			<one-to-one name="stock" ></one-to-one>
+	</class>
+</hibernate-mapping>
