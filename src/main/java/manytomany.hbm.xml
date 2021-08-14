@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.bean.manytomany.EmployeeBean">
+		<id name="employeeId">
+			<generator class="increment"></generator>
+		</id>
+
+		<property name="name"></property>
+		<property name="salary"></property>
+
+		<set name="projects" table="employee_project" cascade="all"
+			inverse="false" fetch="select" lazy="true" >
+			<key>
+				<column name="employeeId"></column>
+			</key>
+			<many-to-many
+				 class="com.bean.manytomany.ProjectBean">
+				<column name="projectId"></column>
+			</many-to-many>
+		</set>
+	</class>
+
+	<class name="com.bean.manytomany.ProjectBean">
+		<id name="projectId">
+			<generator class="increment"></generator>
+		</id>
+		<property name="projectName"></property>
+		<property name="budget"></property>
+	
+		<set name="employees" table="employee_project" inverse="true"  fetch="select">
+			<key>
+				<column name="projectId"></column>
+			</key>
+			<many-to-many class="com.bean.manytomany.EmployeeBean">
+				<column name="employeeId"></column>
+			</many-to-many>
+		
+		</set>
+	
+	</class>
+
+</hibernate-mapping>
