@@ -22,6 +22,8 @@
 				<column name="projectId"></column>
 			</many-to-many>
 		</set>
+		
+		
 	</class>
 
 	<class name="com.bean.manytomany.ProjectBean">

@@ -116,7 +116,7 @@ public class BookCRUD {
 						// you can ask for other parameters like price , author
 
 						tx = session.beginTransaction();
-						session.save(book); // save method is used to update in hibernate
+						session.update(book); // save method is used to update in hibernate
 						// how save method knows that hiberante have to insert or update?
 						// using Id of your data --> if id is missing means its new record
 						// if id is present then update
