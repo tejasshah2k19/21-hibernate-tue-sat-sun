@@ -30,7 +30,9 @@
 		<mapping class="com.bean.annotation.onetoone.AddressBean" />
 		<mapping class="com.bean.annotation.onetomany.QuestionBean"/>
 		<mapping class="com.bean.annotation.onetomany.AnswerBean"/>
-		
+		<mapping class="com.bean.annotation.manytomany.PlayerBean"/>
+		<mapping class="com.bean.annotation.manytomany.SportsBean"/>
+				
 	</session-factory>
 
 
